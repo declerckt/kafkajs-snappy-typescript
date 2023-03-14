@@ -2,7 +2,7 @@
   "name": "kafkajs-snappy-typescript",
   "version": "1.0.0",
   "description": "Snappy codec for kafkajs in typescript",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean",

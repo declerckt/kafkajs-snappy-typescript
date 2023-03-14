@@ -6,6 +6,10 @@ export class SnappyCodec {
     private static SIZE_BYTES = 4
     private static SIZE_OFFSET = 16
 
+
+    public SnappyCode(){
+    }
+
     private static isFrameFormat(buffer: Buffer): boolean{
         return buffer.subarray(0, 8).equals(SnappyCodec.XERIAL_HEADER)
     }
