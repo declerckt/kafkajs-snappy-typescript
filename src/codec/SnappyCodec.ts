@@ -1,5 +1,9 @@
 import { compress, uncompress } from "snappy";
 
+interface IEncoder {
+    buffer: Buffer
+}
+
 export class SnappyCodec {
 
     private static XERIAL_HEADER = Buffer.from([130, 83, 78, 65, 80, 80, 89, 0])
@@ -14,8 +18,8 @@ export class SnappyCodec {
         return buffer.subarray(0, 8).equals(SnappyCodec.XERIAL_HEADER)
     }
 
-    private async compress(msg: string): Promise<Buffer> {
-        return compress(msg);
+    private async compress(encoder: IEncoder): Promise<Buffer> {
+        return compress(encoder.buffer);
     }
 
     private async decompress(buffer: Buffer): Promise<string | Buffer> {
